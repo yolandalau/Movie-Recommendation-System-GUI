@@ -64,6 +64,17 @@ def open_link(my_url):
     webbrowser.open_new(url=my_url)
 
 
+# add feedback thumbs up/down
+def provide_feedback(movie_title, feedback_type):
+    if feedback_type == "up":
+        user_feedback[movie_title] = user_feedback.get(movie_title, 0) + 1
+        tkinter.messagebox.showinfo('Feedback', f"You liked: {movie_title}")
+    elif feedback_type == "down":
+        user_feedback[movie_title] = user_feedback.get(movie_title, 0) - 1
+        tkinter.messagebox.showinfo('Feedback', f"You disliked: {movie_title}")
+    # could adjust recommendations based on feedback
+
+
 def get_text(event=None):
     """
     :param event: None
